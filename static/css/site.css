@@ -1,0 +1,103 @@
+* {
+    font-family:'Century Schoolbook';
+}
+
+body {
+    background-color: #7200ba;
+}
+
+footer p {
+    color: whitesmoke;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+img{
+    max-width: 100%;
+    width: 100%;
+    height: 500px;
+}
+
+.grid-item {
+    text-align: center;
+    align-content: center;
+    grid-column-gap: 20px;
+    opacity: 1.2;
+}
+
+#infotext {
+    color: whitesmoke;
+    border-radius: 100px;
+}
+
+    #infotext h1 {
+        text-anchor:middle;
+    }
+
+.body-content {
+    max-width: 100%;
+}
+
+.navbar .navbar-brand > a{
+    margin-right: auto;
+    padding-right: 60px;
+    align-content: center !important;
+    opacity: 1.0;
+    color: azure !important;
+    font-weight: 400 !important;
+}
+
+
+    .navbar > a {
+        text-decoration: none;
+    }
+
+
+.navbar-brand:hover {
+    transform: scale(1.10);
+    transform-origin: bottom center;
+    text-decoration: none;
+}
+
+.nav-item {
+    margin-right: 10px;
+    padding-right: 100px;
+    opacity: 1.0;
+    align-content: center !important;
+    font-size: 18px;
+}
+
+.navbar {
+    background-color: blueviolet !important;
+    color: #4800ff;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    transform: scale(1.01);
+    transform-origin: bottom center;
+    text-decoration: none;
+}
+
+.resume > a {
+    text-decoration: none !important;
+    display: block;
+    width: 50%;
+    border: 3px solid black;
+    margin: 0 0 0 25%;
+    border-radius: 45%;
+    color: aliceblue !important;
+}
+    .resume > a:hover {
+        background-color: blueviolet;
+    }
+
+.social-media-buttons {
+    margin: 0 0 0 15%;
+}

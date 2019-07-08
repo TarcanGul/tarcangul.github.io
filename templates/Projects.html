@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="~/css/projects.css">
+</head>
+<body>
+    <div class="grid-container-projects">
+        @foreach (var repo in @ViewData["repoList"] as IEnumerable<TarcanGulWebsite.Models.Repo>)
+        {
+        <div class="grid-item-project">
+            <a href="@repo.Link" target="_blank">
+
+                <div>
+                    <section class="ProjectArea">
+                        <h3 class="repo-name">@repo.Name</h3>
+                        <h5 class="repo-desr">Description: @repo.Description</h5>
+                    </section>
+                </div>
+
+            </a>
+        </div>
+        }
+
+    </div>
+    </body>
+</html>

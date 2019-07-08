@@ -1,0 +1,48 @@
+body {
+}
+
+.grid-container-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: none;
+    align-content: center;
+}
+
+.ProjectArea > h3, .ProjectArea > h5 {
+ 
+}
+
+.grid-item-project > a {
+    display: block;
+    height: 100%;
+    white-space: pre-line;
+    border: solid #000000;
+    border-radius: 20%;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+    .ProjectArea {
+        font-size: xx-small;
+        vertical-align: text-top;
+    }
+
+
+    .grid-item-project > a:hover {
+        transform: scale(1.02);
+        background-color: bisque;
+        text-decoration: none !important;
+    }
+
+@media only screen and (min-width:600px) and (max-width: 800px) {
+    .grid-container-projects {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-container-projects {
+        grid-template-columns: 100%;
+    }
+}
