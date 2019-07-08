@@ -38,7 +38,7 @@ fetch("https://api.github.com/users/TarcanGul/repos", {
         var description = data.description;
         var project = {
             date : Date.parse(data.pushed_at),
-            project : '<div class="grid-item-project"><a href="$' + link + '" target="_blank"><div><section class="ProjectArea"><h3 class="repo-name">' + name + '</h3><h5 class="repo-desr">Description: ' + description + '</h5></section></div></a></div>'
+            project : '<div class="grid-item-project"><a href="' + link + '" target="_blank"><div><section class="ProjectArea"><h3 class="repo-name">' + name + '</h3><h5 class="repo-desr">Description: ' + description + '</h5></section></div></a></div>'
         }
         projects.push(project)
         //buildingString = buildingString + '<div class="grid-item-project"><a href="$' + link + '" target="_blank"><div><section class="ProjectArea"><h3 class="repo-name">' + name + '</h3><h5 class="repo-desr">Description: ' + description + '</h5></section></div></a></div>'
