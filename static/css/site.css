@@ -60,7 +60,7 @@ img{
 
 
 .navbar-brand:hover {
-    transform: scale(1.10);
+    transform: scale(1.01);
     transform-origin: bottom center;
     text-decoration: none;
 }
