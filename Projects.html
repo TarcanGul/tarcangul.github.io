@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="static/css/site.css" />
     <title>Projects</title>
-    <link rel="stylesheet" href="~/css/projects.css">
+    <link rel="stylesheet" href="static/css/projects.css">
 </head>
 <body>
-    <div class="grid-container-projects">
-        @foreach (var repo in @ViewData["repoList"] as IEnumerable<TarcanGulWebsite.Models.Repo>)
-        {
-        <div class="grid-item-project">
-            <a href="@repo.Link" target="_blank">
-
-                <div>
-                    <section class="ProjectArea">
-                        <h3 class="repo-name">@repo.Name</h3>
-                        <h5 class="repo-desr">Description: @repo.Description</h5>
-                    </section>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark align-top">
+                <div class="navbar-brand">
+                    <a class="nav-link" href="index.html">Tarcan Gul</a>
                 </div>
-
-            </a>
-        </div>
-        }
-
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Music.html">Music</a>
+                    </li>
+                </ul>
+    </nav>
+    <div id="project-field" class="grid-container-projects">
     </div>
-    </body>
+    <hr />
+    <footer>
+        <p>&copy; 2019 - Tarcan Gul</p>
+    </footer>
+
+    <script src="static/lib/jquery/dist/jquery.js"></script>
+    <script src="static/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="static/js/projects.js"></script>
+</body>
+
+
 </html>
