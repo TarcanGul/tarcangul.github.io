@@ -27,6 +27,7 @@ img{
 .grid-item {
     text-align: center;
     align-content: center;
+    margin: auto;
     grid-column-gap: 20px;
     opacity: 1.2;
 }
@@ -91,13 +92,30 @@ img{
     width: 50%;
     border: 3px solid black;
     margin: 0 0 0 25%;
-    border-radius: 45%;
     color: aliceblue !important;
 }
     .resume > a:hover {
         background-color: blueviolet;
     }
 
-.social-media-buttons {
-    margin: 0 0 0 15%;
+.social-media-buttons a{
+    color: aliceblue;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    width: 50%;
+    border: solid black;
+}
+
+.social-media-buttons a:hover{
+    border: solid aliceblue;
+    background-color: blueviolet;
+}
+
+@media only screen and (max-width:1000px)
+{
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
