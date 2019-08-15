@@ -27,7 +27,6 @@ img{
 .grid-item {
     text-align: center;
     align-content: center;
-    margin: auto;
     grid-column-gap: 20px;
     opacity: 1.2;
 }
