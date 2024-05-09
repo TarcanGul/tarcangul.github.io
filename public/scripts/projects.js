@@ -49,31 +49,29 @@ function constructProjectNode(link, projectName, description) {
 }
 
 
-await fetch("https://api.github.com/users/TarcanGul/repos", {
+const reposRestResponse = await fetch("https://api.github.com/users/TarcanGul/repos", {
     headers : {
         'Accept': 'application/vnd.github.v3+json'
     }
-})
-.then(function(response){
-    return response.json();
-})
-.then(function(jsonResponse) {
-    let projects = [];
-    for(let data of jsonResponse)
-    {
-        const link = data.html_url;
-        const name = data.name;
-        const description = data.description;
-        const project = {
-            date : Date.parse(data.pushed_at),
-            project: constructProjectNode(link, name, description)
-        }
-        projects.push(project)
+});
+
+const jsonResponse = await reposRestResponse.json();
+
+let projects = [];
+for(let data of jsonResponse)
+{
+    const link = data.html_url;
+    const name = data.name;
+    const description = data.description;
+    const project = {
+        date : Date.parse(data.pushed_at),
+        project: constructProjectNode(link, name, description)
     }
-    projects.sort(compareProjects);
-    const projectField = document.getElementById("project-field");
-    if(projectField) {
-        projects.forEach(projectNode => projectField.appendChild(projectNode.project));
-        document.querySelector(".loading-area").remove();
-    }
-})
+    projects.push(project)
+}
+projects.sort(compareProjects);
+const projectField = document.getElementById("project-field");
+if(projectField) {
+    projects.forEach(projectNode => projectField.appendChild(projectNode.project));
+    document.querySelector(".loading-area").remove();
+}
