@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import soundcloudIcon from '../images/icons/soundcloud.png';
+import linkedinIcon from '../images/icons/linkedin.png';
+import githubIcon from '../images/icons/github.png';
+import spotifyIcon from '../images/icons/spotify.png';
+---
+
+<li>
+    <a href="https://www.linkedin.com/in/tarcan-gul/" target="_blank">
+        <Image src={linkedinIcon} alt="linkedin icon" width={40} height={40}/>
+    </a>    
+</li>
+<li>
+    <a href="https://github.com/tarcangul" target="_blank">
+        <Image src={githubIcon} alt="github icon" width={40} height={40}/>
+    </a>
+</li>
+<li>
+    <a href="https://soundcloud.com/tarcan-gul" target="_blank">
+        <Image src={soundcloudIcon} alt="soundcloud icon" width={40} height={40}/>
+    </a>
+</li>
+<li>
+    <a href="https://open.spotify.com/artist/6DggzfEu6vAffFzFAwoYuD?si=TjEE3P3XRPSK_KX1eeBlGQ" target="_blank">
+        <Image src={spotifyIcon} alt="spotify icon" width={40} height={40}/>
+    </a>
+</li>

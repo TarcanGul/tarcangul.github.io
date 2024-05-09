@@ -1,0 +1,47 @@
+---
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/site.css';
+
+const blogPosts = await Astro.glob('./blogs/*.md');
+
+const sortedBlogPosts = blogPosts.sort((a: any, b: any) => {
+    const bDate = new Date(b.frontmatter.pubDate);
+    const aDate = new Date(a.frontmatter.pubDate);
+    return bDate.getTime() - aDate.getTime();
+});
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+	  <meta name="generator" content={Astro.generator} />
+    <title>Blogs</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <Navigation />
+    </header>
+    <main>
+        <h1>Blogs</h1>
+        <ul>
+          {sortedBlogPosts.map(post => (
+            <li>
+              <a href={post.url}>
+                <h2>{post.frontmatter.title}</h2>
+                <p>Published on: {new Date(post.frontmatter.pubDate).toLocaleDateString()}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+    </main>
+    <Footer />
+</body>
+</html>

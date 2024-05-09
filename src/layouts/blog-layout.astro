@@ -1,0 +1,26 @@
+---
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/site.css';
+const {frontmatter} = Astro.props;
+---
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+    </head>
+    <body>
+        <header>
+            <Navigation />
+        </header>
+        <main>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.description}</p>
+            <br />
+            <slot /> 
+        </main>
+        <Footer />
+    </body>
+</html>

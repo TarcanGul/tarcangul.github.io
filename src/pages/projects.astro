@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import loadingIcon from '../images/icons/loading.gif';
+import '../styles/site.css';
+
+---
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <Navigation />
+    </header>
+    <main>
+        <div class="loading-area">
+            <Image src={loadingIcon} alt={'loading'} id="loading-icon" />
+            <br>
+            <p> Fetching all the projects from github... </p>
+        </div>
+        <div id="project-field" class="grid-container-projects">
+        </div>
+    </main>
+    <Footer />
+    <style>
+        .grid-container-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .grid-container-projects {
+                grid-template-columns: 100%;
+            }
+        }
+    </style>
+    <script src="../scripts/projects.js"></script>
+</body>
+</html>

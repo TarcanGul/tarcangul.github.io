@@ -1,0 +1,29 @@
+{
+	"name": "astro",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build && touch ./dist/.nojekyll",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.10",
+		"astro": "^4.7.1",
+		"sharp": "^0.32.6",
+		"typescript": "^5.4.5"
+	},
+	"pnpm": {
+		"supportedArchitectures": {
+			"os": [
+				"current"
+			],
+			"cpu": [
+				"x64",
+				"arm64"
+			]
+		}
+	}
+}
