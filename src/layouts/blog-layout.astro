@@ -2,7 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 import '../styles/site.css';
-const {frontmatter} = Astro.props;
+const { title, description } = Astro.props.frontmatter;
 ---
 <html>
     <head>
@@ -10,16 +10,67 @@ const {frontmatter} = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <style is:global>
+            main {
+                width: 60%;
+            }
+
+            .blog-desc {
+                margin-bottom: 2vh;
+            }
+
+            .blog-post {
+                li {
+                    position: relative;
+                    left: 1vw;
+                    line-height:32px;
+                    text-align: left;
+                }
+
+                ul {
+                    margin-bottom: 4vh;
+                }
+
+                p {
+                    text-align: initial;
+                    margin-bottom: 3vh;
+                    line-height:32px;
+                }
+
+                h2 {
+                    margin-top: 24px;
+                    margin-bottom: 24px;
+                }
+
+                code:not(pre code) {
+                    color: var(--ternary);
+                    background-color: black;
+                    padding: 6px;
+                    border-radius: 20px;
+                }
+
+                pre {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    border-radius: 20px;
+                    text-align: left;
+                    padding-left: 24px;
+                }
+            }
+        </style>
     </head>
     <body>
         <header>
             <Navigation />
         </header>
         <main>
-            <h1>{frontmatter.title}</h1>
-            <p>{frontmatter.description}</p>
+            <h1 class="blog-title">{title}</h1>
+            <p class="italic blog-desc">{description}</p>
+            <hr>
             <br />
-            <slot /> 
+            <div class="blog-post">
+                <slot /> 
+            </div>
         </main>
         <Footer />
     </body>

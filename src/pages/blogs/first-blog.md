@@ -7,8 +7,7 @@ pubDate: 2024-05-04
 
 Building online games are never easy, because there are a lot of moving parts with building one. How do players access, join, and control the game? One of the online games I really appreaciate is Jackbox. 
 
-Jackbox is a fun game you can play with friends and family that allows anyone with a phone to participate. The
-good thing about this is that you don't need additional controllers (like you would in a console) or the system itself (like handheld systems or even some Nintendo Switch games). Only one person has the copy of the game, and they can start a game from their client for others to join via anything that can run a browser.
+Jackbox is a fun game you can play with friends and family that allows anyone with a phone to participate. The good thing about this is that you don't need additional controllers (like you would in a console) or the system itself (like handheld systems or even some Nintendo Switch games). Only one person has the copy of the game, and they can start a game from their client for others to join via anything that can run a browser.
 
 For me, Jackbox is an intriguing system. It is something that puts accessiblity in front of everything else, which I like. This inspired me to build a similar system that allows a client to start a game, and allow others to join and play the game.
 
@@ -25,8 +24,7 @@ In my first glance on how the project architecture would like, these were the pa
 
 Great! 
 
-For simplicity, I have decided the game server and the web server to be the same server. I would separate the 
-functionality with separate controllers, which would make the maintainance straight forward. In this approach, I would have a game controller and a web controller inside my "main" server.
+For simplicity, I have decided the game server and the web server to be the same server. I would separate the functionality with separate controllers, which would make the maintainance straight forward. In this approach, I would have a game controller and a web controller inside my "main" server.
 
 For the main server, I have picked Spring Boot since it was easy to start on and I have experience with Java Spring Framework in general.
 
@@ -68,7 +66,11 @@ For deployment, I have dockerized the Spring Boot server for easy portability. S
 
 ## Putting everything together
 
-Putting all the elements together, I had a working online game with only "Wordfinder" game. You can check `tarbox-all` repo on my [Github](https://github.com/TarcanGul). If you are on Mac, after downloading the game, make sure to do `xattr -d /Applications/com.apple.quarantine Tarbox\ Desktop.app`!
+Putting all the elements together, I had a working online game with only "Wordfinder" game. You can check `tarbox-all` repo on my [Github](https://github.com/TarcanGul). If you are on Mac, after downloading the game, make sure to do 
+
+```bash
+xattr -d /Applications/com.apple.quarantine Tarbox\ Desktop.app
+```
 
 ## For future
 

@@ -22,13 +22,17 @@ const sortedBlogPosts = blogPosts.sort((a: any, b: any) => {
       ul {
         list-style-type: none;
       }
+
+      h1 {
+        text-align: center;
+      }
     </style>
 </head>
 <body>
     <header>
       <Navigation />
     </header>
-    <main>
+    <main class="blog-list">
         <h1>Blogs</h1>
         <ul>
           {sortedBlogPosts.map(post => (
