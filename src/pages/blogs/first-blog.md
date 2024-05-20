@@ -41,7 +41,7 @@ For Websockets, I have used [StompJS](https://github.com/stomp-js/stompjs).
 
 ## Into the world of Websockets
 
-Turns out, StompJS is [not that hard to implement with Spring Boot](https://spring.io/guides/gs/messaging-stomp-websocket). What is interesting is that other projects that I took inspiration from, mainly [lila](https://github.com/lichess-org/lila) which is the backend service of [lichess. org](https://lichess.org/), would have a separate Websockets server in their architecture. Here is the picture of the architecture that Lila relies on:
+Turns out, StompJS is [not that hard to implement with Spring Boot](https://spring.io/guides/gs/messaging-stomp-websocket). What is interesting is that other projects that I took inspiration from, mainly [lila](https://github.com/lichess-org/lila) which is the backend service of [lichess.org](https://lichess.org/), would have a separate Websockets server in their architecture. Here is the picture of the architecture that Lila relies on:
 
 <img src="https://raw.githubusercontent.com/lichess-org/lila/master/public/images/architecture.png" alt="lila architecture" height="100%" width="100%">
 
