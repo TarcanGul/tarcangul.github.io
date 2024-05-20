@@ -22,19 +22,24 @@ const { title, description } = Astro.props.frontmatter;
             .blog-post {
                 li {
                     position: relative;
-                    left: 1vw;
+                    left: 20px;
                     line-height:32px;
                     text-align: left;
                 }
 
                 ul {
-                    margin-bottom: 4vh;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
                 }
 
                 p {
                     text-align: initial;
-                    margin-bottom: 3vh;
-                    line-height:32px;
+                    margin-bottom: 2rem;
+                    line-height: 2rem;
+                }
+
+                a::after {
+                    max-height: 1px;
                 }
 
                 h2 {
@@ -55,6 +60,13 @@ const { title, description } = Astro.props.frontmatter;
                     border-radius: 20px;
                     text-align: left;
                     padding-left: 24px;
+                    margin-bottom: 2em;
+                    margin-top: 2em;
+                }
+
+                img {
+                    margin-top: 2em;
+                    margin-bottom: 2em;
                 }
             }
         </style>

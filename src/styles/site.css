@@ -132,10 +132,10 @@ ul a {
 a::after {
     content: '';
     width: 0px;
-    height: 3px;
+    height: 2px;
     display: block;
     background: black;
-    transition: 500ms;
+    transition: 250ms;
 }
 
 .navbar-brand a::after {
