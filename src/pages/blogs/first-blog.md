@@ -99,7 +99,7 @@ xattr -d com.apple.quarantine /Applications/Tarbox\ Desktop.app
 If I wanted to pick up this project again, I would implement these things:
 
 - Implement HTTPS
-- Code Signing for the desktop app so the Mac users don't have to the `xattr` command
+- Code Signing for the desktop app so the Mac users don't have to do the `xattr` command
 - Adding 'recovery' aka if a player accidentally disconnects the game without closing the browser they should be able to reconnect to the game in the current state.
 - Implement more games!
 
