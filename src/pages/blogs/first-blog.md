@@ -6,9 +6,9 @@ pubDate: 2024-05-19
 tags: ["Jackbox", "Spring Boot", "Electron", "React", "Javascript", "Postgres", "Java", "lila", "Websockets", "AWS"]
 ---
 
-Building online games is never easy. There are a lot of moving parts with building one. How do players access and join the game? More importantly, how do people interact with the game? There are a lot of questions to answer with building an online game before any implementation. You can go in any direction you want.
+Building online games is never easy. There are a lot of moving parts with building one. How do players access and join the game? More importantly, how do people interact with the game? There are a lot of questions to answer with building an online game. You can go in any direction you want.
 
-One of the online games I appreciate is [Jackbox](https://www.jackboxgames.com/). Jackbox is a fun game you can play with friends and family that allows anyone with a phone to participate. The good thing about this is that you don't need additional controllers (like you would in a console) or the system itself (like handheld systems or consoles). Only one person has a copy of the game, and they can start a game from their client for others to join via anything that can run a browser.
+One of the online games I appreciate is [Jackbox](https://www.jackboxgames.com/). Jackbox is a fun game you can play with friends and family that allows anyone with a phone to participate. The good thing about Jackbox is that you don't need additional controllers (like you would in a console) or the system itself (like handheld systems or consoles). Only one person has a copy of the game, and they can start a game from their client for others to join via anything that can run a browser.
 
 For me, Jackbox is an intriguing system. It is something that puts accessibility in front of everything else, which I like. This inspired me to **try to** build a similar system that allows a client to start a game, and allow others to join and play the game. I called my project **Tarbox**.
 
@@ -29,7 +29,7 @@ For simplicity, I have decided to implement the game service and the web service
 
 For the main server implementation, I have picked [Spring Boot](https://spring.io/projects/spring-boot) since it was easy to start on and I have experience with Spring in general.
 
-For the technologies used in the desktop client, I have picked [Electron](https://www.electronjs.org/) and [React](https://react.dev/) because of the **reactive** nature of the desktop client to my game. Just like in Jackbox, the desktop client would provide the main screen that would drive the game. By picking Electron, I also had the opportunity to implement with Electron for the first time. I knew that Electron was a trend in desktop applications because of its portability (Slack, Spotify, VS Code, and many others are using this framework...). For the components library, I went forward with [Chakra UI](https://v2.chakra-ui.com/) since I had some familiarity with it.
+For the technologies used in the desktop client, I have picked [Electron](https://www.electronjs.org/) and [React](https://react.dev/) because of the **reactive** nature of the desktop client to my game. Just like in Jackbox, the desktop client would be the main driver in the experience of the players. There will be likely a lot of moving things and state changes that has to be presented in the screen, which makes React a good choice to use with Electron. By picking Electron, I also had the opportunity to get experience with one of the most popular ways to develop desktop applications today. I knew that Electron was a trend in desktop applications because of its portability (Slack, Spotify, VS Code, and many others are using this framework...). For the components library to use with React, I went forward with [Chakra UI](https://v2.chakra-ui.com/) since I had some familiarity with it.
 
 For the database, I went with good old [Postgres](https://www.postgresql.org/).
 
@@ -76,7 +76,7 @@ I engineered my code approach based on the fact that there will be more than one
 
 ## The web interface
 
-The last piece of the pie I want to talk about is the web interface, aka what regular people would interact with in the game. One of my first principles in design was that the interface should be as light as possible since it is meant to be used by many devices that could have not ideal connectivity etc. Also, there is not much reactivity that is needed for the interface, since it is mostly forms or selectable things that you want basic input. Thus, I was OK using Web Components with vanilla JavaScript. The important thing is though I have still used a bundler with my javascript which helps with lightening the bundle size, which is already not much to start with since I didn't pick a third-party frontend framework.
+The last piece of the puzzle I want to talk about is the web interface, aka what regular people would interact with in the game. One of my first principles in design was that the interface should be as light as possible since it is meant to be used by many devices that could have not ideal connectivity etc. Also, there is not much reactivity that is needed for the interface, since it is mostly forms or selectable things that you want basic input. Thus, I was OK using Web Components with vanilla JavaScript. The important thing is though I have still used a bundler with my javascript which helps with lightening the bundle size, which is already not much to start with since I didn't pick a third-party frontend framework.
 
 ## Deployment
 
@@ -88,7 +88,7 @@ For my `tarbox-games` desktop application, I have used [electron-builder](https:
 
 Putting all the elements together, I had a working online game with only the "Wordfinder" game, in which every player gets a turn to describe the word they are assigned to. Other players have to guess the word. In the future, I might implement more games if I feel like it. 
 
-You can check my (tarbox-all)[https://github.com/TarcanGul/tarbox-all] repo. If you are on Mac, after downloading the game, make sure to do 
+You can check my [tarbox-all](https://github.com/TarcanGul/tarbox-all) repo. If you are on Mac, after downloading the game, make sure to do 
 
 ```bash
 xattr -d com.apple.quarantine /Applications/Tarbox\ Desktop.app
