@@ -8,23 +8,8 @@ const { title, description } = Astro.props.frontmatter;
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
-    </head>
-    <body>
-        <header>
-            <Navigation />
-        </header>
-        <main>
-            <h1 class="blog-title">{title}</h1>
-            <p class="italic blog-desc">{description}</p>
-            <hr>
-            <br />
-            <div class="blog-post">
-                <slot /> 
-            </div>
-        </main>
-        <Footer />
         <style is:global>
             main {
                 width: 60%;
@@ -97,5 +82,20 @@ const { title, description } = Astro.props.frontmatter;
                 }
             }
         </style>
+    </head>
+    <body>
+        <header>
+            <Navigation />
+        </header>
+        <main>
+            <h1 class="blog-title">{title}</h1>
+            <p class="italic blog-desc">{description}</p>
+            <hr>
+            <br />
+            <div class="blog-post">
+                <slot /> 
+            </div>
+        </main>
+        <Footer />
     </body>
 </html>
