@@ -16,7 +16,7 @@ In this post, I will go through how I have implemented the [Simple Sequencer](ht
 
 ## The Basic Idea
 
-So this is how Simple Sequencer looks like (and this is the usual design for a sequencer):
+So this is how Simple Sequencer looks like:
 
 ![simple_sequencer](../../images/for-blogs/SimpleSequencerDemo.gif)
 
@@ -27,15 +27,15 @@ There are 5 important components to notice with the sequencer:
 - Being able to set the BPM (beats per minute) so that the user can control the tempo.
 - A play-reset button pair. Usually, this pair exists by the DAW itself but in a standalone sequencer, we need a way to play and pause the composition.
 
-For my sequencer, I have used the C++ JUCE framework since that is what I am familiar what, and also it allowed my program to be buildable to multiple platforms (thanks to JUCE CMake tools).
+For my sequencer, I have used the C++ JUCE framework since that is what I am familiar with. With JUCE, I can create a multi-platform audio programs (thanks to JUCE CMake tools).
 
 ## Approach to Implement a Grid-based Sequencer
 
-In the grid-based sequencer, a mechanism is needed to go through the given sequence for an arbitrary sound and play it concerning the sequence.
+In the grid-based sequencer, a mechanism is needed to go through the given sequence for an arbitrary sound and play it according to the given sequence.
 
-The way I have picked to implement it is to process the sequencer data in real-time with a timer. The time step will be treated as a signal which will be triggered by the timer. The signal will be associated with a callback where a real-time check is performed whether a sound should play or not. This allows much more flexibility since the logic is not dependent on the number of beats, the user can lengthen or shrink the number of beats as they please. One downside of this approach is that the callback must be as efficient as possible since the callback will be called *a lot of times*, so special care must be given to the callback so that the performance does not suffer.
+The way I have picked to implement it is to process the sequencer data in (near) real-time with a timer. The time step will be treated as a signal which will be triggered by the timer. The signal will be associated with a callback where a real-time check is performed whether a sound should play or not. This allows much more flexibility since the logic is not dependent on the number of beats, the user can lengthen or shrink the number of beats as they please. One downside of this approach is that the callback must be as efficient as possible since the callback will be called *a lot of times*, so special care must be given so that the performance does not suffer.
 
-An interesting thing to think about here, knowing the nature of pre-emptive scheduling in many operating systems, is how a signal can be triggered on beat reliably without being affected by the other processes running in the operating system. The BPM must be deterministic, so there is little room for inconsistency on when a time step happens. Otherwise, the composition can be arbitrary which essentially kills the point of rhythm.
+An interesting thing to think about here, knowing the nature of pre-emptive scheduling in many operating systems, is how a signal can be triggered on beat reliably without being affected by the other processes running in the operating system. The BPM must be deterministic, so there is little room for inconsistency on when a time step happens. Otherwise, the composition can be inconsistent for playback which essentially kills the point of rhythm.
 
 ## JUCE and The `HighResolutionTimer`
 
