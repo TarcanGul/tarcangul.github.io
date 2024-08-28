@@ -64,6 +64,14 @@ const { title, description } = Astro.props.frontmatter;
                     margin-top: 2em;
                 }
 
+                /* Code blocks with links */
+                a > code {
+                    color: var(--code-link) !important;
+                    background-color: transparent !important;
+                    padding: 0 !important;
+                    border-radius: 20px !important;
+                }
+
                 img {
                     margin-top: 2em;
                     margin-bottom: 2em;

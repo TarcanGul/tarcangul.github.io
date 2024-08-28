@@ -9,6 +9,7 @@
     --secondary: #DCBFFF;
     --ternary: #E5D4FF;
     --bg: #F1EAFF;
+    --code-link: rgb(86, 145, 254);
 }
 
 @font-face {
