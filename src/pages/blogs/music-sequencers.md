@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/blog-layout.astro
-title: 'Deep dive on software grid-based music sequencers'
+title: 'Deep Dive into Software Grid-Based Music Sequencers'
 description: 'We are diving deep into the interesting problems with implementing music sequencers.'
 pubDate: 2024-08-28
 tags: ["Sequencer", "Music", "JUCE", "C++", "FL Studio", "Simple Sequencer"]
@@ -18,7 +18,7 @@ In this post, I will go through how I have implemented the [Simple Sequencer](ht
 
 So this is how Simple Sequencer looks like:
 
-![simple_sequencer](../../images/for-blogs/SimpleSequencerDemo.gif)
+<img src="/for-blogs/SimpleSequencerDemo.gif" alt="simple sequencer" style="max-width:500px; max-height:500px">
 
 There are 5 important components to notice with the sequencer:
 - A grid toggle system. The number of grids usually comes from the time signature that is picked by the DAW (usually it is 4/4, which is a beat consisting of 4 quarter notes). Creative sequencers may allow arbitrary time signatures in chosen sections. 
