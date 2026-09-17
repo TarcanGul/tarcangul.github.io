@@ -11,3 +11,4 @@ These instructions apply when drafting or editing posts under `src/pages/blogs/`
 - Verify factual claims and technical explanations against reliable sources, preferring official documentation. Include relevant links in the References section.
 - Use confirmed links and details from the draft or accompanying notes. If required information is missing, ask the author rather than inventing it.
 - Preserve existing frontmatter and section structure unless the requested edit calls for changes.
+- Store blog images under `src/images/blogs/` with descriptive filenames. Copy supplied images into the repository and embed them using Markdown with meaningful alt text and a relative path, for example `![Layer setup](../../images/blogs/peakmap-layer-setup.png)`. Place images next to the relevant explanation or table and preserve the post's existing image-sizing convention.
