@@ -2,7 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 import '../styles/site.css';
-const { title, description } = Astro.props.frontmatter;
+const { title, description, compactImages = false } = Astro.props.frontmatter;
 ---
 <html>
     <head>
@@ -36,6 +36,18 @@ const { title, description } = Astro.props.frontmatter;
                     text-align: initial;
                     margin-bottom: 2rem;
                     line-height: 2rem;
+                }
+
+                table {
+                    font-size: inherit;
+                    line-height: 2rem;
+                    border-collapse: collapse;
+                    margin-bottom: 2rem;
+                }
+
+                th, td {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    padding: 0.5rem 0.75rem;
                 }
 
                 a::after {
@@ -80,6 +92,14 @@ const { title, description } = Astro.props.frontmatter;
                 }
             }
 
+            .blog-post.compact-images img {
+                display: block;
+                width: 320px;
+                max-width: 100%;
+                height: auto;
+                margin: 1.5rem auto;
+            }
+
             @media screen and (max-width: 700px) {
                 main {
                     width: 90%;
@@ -102,7 +122,7 @@ const { title, description } = Astro.props.frontmatter;
             <p class="italic blog-desc">{description}</p>
             <hr>
             <br />
-            <div class="blog-post">
+            <div class:list={['blog-post', { 'compact-images': compactImages }]}>
                 <slot /> 
             </div>
         </main>

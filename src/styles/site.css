@@ -60,7 +60,7 @@ body {
     background-color: var(--bg);
 }
 
-p, a, li {
+p, a, li, .blog-post table {
     font-family: 'Platypi', sans-serif;
     word-spacing: 2px;
 }
