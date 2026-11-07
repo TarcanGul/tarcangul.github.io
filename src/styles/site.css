@@ -195,6 +195,27 @@ footer {
     gap: 20px;
 }
 
+@media screen and (max-width: 480px) {
+    nav {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        padding: .75rem;
+        gap: .75rem;
+    }
+
+    nav > .navbar-brand, nav > ul.nav-left {
+        flex-basis: 100%;
+    }
+
+    nav > ul.nav-left {
+        justify-content: center;
+        margin-right: 0;
+        padding-left: 0;
+        gap: 1rem;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .navbar-brand {
         font-size: 1.5rem;
