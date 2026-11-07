@@ -1,0 +1,45 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/site.css';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Download Little Variances and Cavey VST plugins by Tarcan Gul." />
+        <title>Plugins | Tarcan Gul</title>
+    </head>
+    <body>
+        <header><Navigation /></header>
+        <main>
+            <h1>Plugins</h1>
+            <p>Explore my VST plugins and find downloads on GitHub.</p>
+            <div class="plugins">
+                <section>
+                    <h2>Little Variances</h2>
+                    <p>VST plugin</p>
+                    <a href="https://github.com/TarcanGul/little-variances-releases/releases/tag/v0.1.0-build.3">Download Little Variances</a>
+                </section>
+                <section>
+                    <h2>Cavey</h2>
+                    <p>VST plugin</p>
+                    <a href="https://github.com/TarcanGul/cavey/releases">Download Cavey</a>
+                </section>
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    main { max-width: 60rem; }
+    h1 { margin-bottom: 1rem; }
+    .plugins { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 2rem; margin-top: 2rem; }
+    section { padding: 2rem; background: var(--ternary); border-radius: .5rem; }
+    section p { margin: .75rem 0 1.25rem; }
+    section a { color: #563477; text-decoration: underline; line-height: 1.6; }
+    section a:focus-visible { outline: 3px solid #67418a; outline-offset: 4px; }
+</style>

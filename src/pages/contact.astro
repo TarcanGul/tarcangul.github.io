@@ -1,0 +1,106 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/site.css';
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Get in touch with Tarcan Gul." />
+        <title>Contact | Tarcan Gul</title>
+    </head>
+    <body>
+        <header><Navigation /></header>
+        <main>
+            <h1>Get in touch</h1>
+            <p>Have a question or something you'd like to share? Send me a message.</p>
+            {!accessKey && <p class="notice">The contact form is currently unavailable. Please check back soon.</p>}
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value={accessKey} />
+                <input type="hidden" name="subject" value="New message from Tarcan's Corner" />
+                <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" aria-hidden="true" />
+                <fieldset disabled={!accessKey}>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" autocomplete="name" required maxlength="200" />
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" />
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="7" required maxlength="10000"></textarea>
+                    <p class="privacy"><a href="/privacy">Privacy</a></p>
+                    <button type="submit">Send message</button>
+                </fieldset>
+                <p id="contact-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<script>
+    const form = document.querySelector<HTMLFormElement>('#contact-form');
+    const status = document.querySelector<HTMLParagraphElement>('#contact-status');
+    const button = form?.querySelector<HTMLButtonElement>('button');
+
+    if (form && status && button) {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            if (button.disabled || !form.reportValidity()) return;
+
+            const data = new FormData(form);
+            data.delete('redirect');
+            button.disabled = true;
+            button.textContent = 'Sending…';
+            form.setAttribute('aria-busy', 'true');
+            status.textContent = 'Sending your message…';
+            status.removeAttribute('data-error');
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(data)),
+                    signal: AbortSignal.timeout(20000),
+                });
+                const result = await response.json();
+                if (!response.ok || result.success !== true) throw new Error('Submission failed');
+
+                form.reset();
+                status.textContent = 'Thanks! Your message has been sent.';
+            } catch {
+                status.dataset.error = 'true';
+                status.textContent = 'Your message could not be confirmed as sent. Your text is still here. Please try again in a moment.';
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Send message';
+                form.removeAttribute('aria-busy');
+            }
+        });
+    }
+</script>
+
+<style>
+    main { max-width: 42rem; }
+    h1 { margin-bottom: 1rem; }
+    form { margin-top: 2rem; text-align: left; }
+    fieldset { border: 0; display: flex; flex-direction: column; gap: .75rem; min-width: 0; }
+    label, input, textarea, button { font: inherit; font-family: 'Platypi', sans-serif; }
+    label { font-weight: 700; }
+    input, textarea { width: 100%; padding: .75rem; border: 1px solid #77558e; border-radius: .35rem; background: #fff; color: #21162b; margin-bottom: .5rem; }
+    textarea { resize: vertical; }
+    button { align-self: flex-start; padding: .75rem 1.25rem; border: 1px solid #77558e; border-radius: .35rem; background: var(--secondary); color: #21162b; cursor: pointer; }
+    button:hover:not(:disabled) { background: var(--primary); }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 3px solid #67418a; outline-offset: 3px; }
+    .botcheck { display: none; }
+    .privacy { font-size: .85rem; line-height: 1.6; }
+    .privacy a { color: #563477; text-decoration: underline; }
+    .notice, #contact-status { margin-top: 1rem; line-height: 1.6; }
+    #contact-status { min-height: 3.2em; }
+    [data-error] { color: #8b2020; }
+</style>

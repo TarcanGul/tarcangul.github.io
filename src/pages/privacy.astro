@@ -1,0 +1,38 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/site.css';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="How information submitted through Tarcan Gul's contact form is handled." />
+        <title>Privacy | Tarcan Gul</title>
+    </head>
+    <body>
+        <header><Navigation /></header>
+        <main>
+            <h1>Privacy</h1>
+            <section>
+                <h2>Contact form</h2>
+                <p>When you use the contact form, your name, email address, and message are sent through Web3Forms and delivered to my email inbox so I can read your message and reply.</p>
+                <p>For details about how Web3Forms processes submission data, see the <a href="https://web3forms.com/privacy">Web3Forms privacy policy</a>.</p>
+                <p>If you have questions about your contact information or would like me to delete a message you sent, please <a href="/contact">contact me</a>.</p>
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    main { max-width: 42rem; }
+    h1 { margin-bottom: 2rem; }
+    section { text-align: left; }
+    h2 { margin-bottom: 1rem; }
+    p { margin-bottom: 1rem; line-height: 1.7; }
+    a { color: #563477; text-decoration: underline; }
+    a:focus-visible { outline: 3px solid #67418a; outline-offset: 4px; }
+</style>
