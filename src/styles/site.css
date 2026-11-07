@@ -209,6 +209,7 @@ footer {
     }
 
     nav > ul.nav-left {
+        flex-wrap: wrap;
         justify-content: center;
         margin-right: 0;
         padding-left: 0;
